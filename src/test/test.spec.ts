@@ -1,6 +1,6 @@
 import BasePage, { Contexts } from '../../common/basePage'
 import BoardPage from '../../common/boardPage';
-import HttpRequest from '../../common/httpRequest';
+import HttpRequest from '../../common/httpRequestPage';
 
 const _basePage = new BasePage();
 const _axiosAction = new HttpRequest();

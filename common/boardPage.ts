@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import BasePage, { Contexts, Variables } from "./basePage";
-import HttpRequest from "./httpRequest";
+import HttpRequest from "./httpRequestPage";
 
 const _axiosAction = new HttpRequest();
 const _basePage = new BasePage();
