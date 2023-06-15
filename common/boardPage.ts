@@ -1,9 +1,8 @@
-import BasePage, { Contexts } from "./basePage";
-import HttpRequest from "./httpRequestPage";
+import BasePage, {Contexts} from 'backend-repo-core/src/basePage';
+import HttpRequestPage from 'backend-repo-core/src/httpRequestPage';
 
-const _axiosAction = new HttpRequest();
+const _axiosAction = new HttpRequestPage();
 const _basePage = new BasePage();
-
 
 export default class BoardPage{
 

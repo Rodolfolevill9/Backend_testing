@@ -1,9 +1,13 @@
-import BasePage, { Contexts } from '../../common/basePage'
+/*import BasePage, { Contexts } from '../../common/basePage'
+import HttpRequest from '../../common/httpRequestPage';*/
+
+import BasePage, {Contexts} from 'backend-repo-core/src/basePage';
+import HttpRequestPage from 'backend-repo-core/src/httpRequestPage';
 import BoardPage from '../../common/boardPage';
-import HttpRequest from '../../common/httpRequestPage';
+
 
 const _basePage = new BasePage();
-const _axiosAction = new HttpRequest();
+const _axiosAction = new HttpRequestPage();
 const _boardPage = new BoardPage();
 
 describe('Trello suite', () => {
