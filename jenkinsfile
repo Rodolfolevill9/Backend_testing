@@ -41,5 +41,11 @@ pipeline{
                 
             }
         }
+    }
+    post
+    {
+        always{
+            slackSend channel: 'jenkins-private-test'
+        }
     }  
 }
