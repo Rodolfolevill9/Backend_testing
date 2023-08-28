@@ -45,7 +45,7 @@ pipeline{
     post
     {
         always{
-            slackSend channel: 'jenkins-private-test'
+            slackSend channel: 'jenkins-private-test', message: 'Resultados de la ejecucion'
         }
     }  
 }
