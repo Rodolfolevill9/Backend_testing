@@ -1,0 +1,45 @@
+pipeline{
+    agent any
+
+    parameters {
+        string(name: 'TEST_NAME', defaultValue: "", description: 'Test to run')
+    }
+
+    tools{
+        nodejs 'node18'
+    }
+
+    stages {
+        stage('Install'){
+            steps{
+                echo "***********************"
+                echo "        Build          "
+                echo "***********************"
+                sh 'npm install'
+            }            
+        }
+        stage('Builds'){
+            steps{
+                sh 'npm run build'
+            }            
+        }
+        stage('Test'){
+            steps{
+                script{
+                    if(TEST_NAME == ""){
+                        echo "***********************"
+                        echo "     Run all Test      "
+                        echo "***********************"
+                        sh 'npm run test'
+                    }else{
+                        echo "**************************"
+                        echo "Running test ${TEST_NAME} "
+                        echo "**************************"
+                        sh 'npm run test -- -t ${TEST_NAME} --verbose'
+                    }
+                }
+                
+            }
+        }
+    }  
+}

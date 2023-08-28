@@ -34,7 +34,7 @@ describe('Trello suite', () => {
         
     });*/
 
-    test('[Post] Create a new List', async () => {
+    test('TC-001 [Post] Create a new List', async () => {
         const listContext = _basePage.getUrlContext(Contexts.lists);
         const boardContext = _basePage.getUrlContext(Contexts.boards);
 
