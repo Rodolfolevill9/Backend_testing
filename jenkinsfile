@@ -18,11 +18,11 @@ pipeline{
                 sh 'npm install'
             }            
         }
-        stage('Builds'){
+        /*stage('Builds'){
             steps{
                 sh 'npm run build'
             }            
-        }
+        }*/
         stage('Test'){
             steps{
                 script{
