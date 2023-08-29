@@ -40,7 +40,7 @@ pipeline{
     post
     {
         always {
-            slackSend channel:'jenkins-private-test' , message: "Status of pipeline ${env.JOB_NAME} - ${env.BUILD_NUMBER} ${env.JOB_URL}"
+            slackSend color: 'good' ,channel:'jenkins-private-test' , message: "Status of pipeline ${env.JOB_NAME} - ${env.BUILD_NUMBER} ${env.JOB_URL}"
 
         }
     }  
