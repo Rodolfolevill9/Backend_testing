@@ -1,11 +1,11 @@
-pipeline{
-    agent any
-
-    def COLOR = [
+def COLOR = [
         'SUCCESS' : 'good',
         'FAILURE' : 'danger',
         'UNSTABLE' : 'warning',
     ]
+
+pipeline{
+    agent any
 
     parameters {
         string(name: 'TEST_NAME', defaultValue: "", description: 'Test to run')
