@@ -18,11 +18,6 @@ pipeline{
                 sh 'npm install'
             }            
         }
-        /*stage('Builds'){
-            steps{
-                sh 'npm run build'
-            }            
-        }*/
         stage('Test'){
             steps{
                 script{
@@ -45,7 +40,7 @@ pipeline{
     post
     {
         always {
-            slackSend channel:'jenkins-private-test' , message: 'Status'
+            slackSend channel:'jenkins-private-test' , message: "Status of pipeline ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
         }
     }  
 }
