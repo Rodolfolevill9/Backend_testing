@@ -48,9 +48,9 @@ pipeline{
         always {
             slackSend channel:'jenkins-private-test' ,
                       color: COLOR[currentBuild.currentResult],
-                      message: "Status of pipeline - *${currentBuild.currentResult}* \n
-                      ${env.JOB_NAME} - ${env.BUILD_NUMBER} \n
-                      ${env.JOB_URL}"
+                      message: """Status of pipeline - *${currentBuild.currentResult}*
+                      ${env.JOB_NAME} - ${env.BUILD_NUMBER}
+                      ${env.JOB_URL}"""
 
         }
     }  
