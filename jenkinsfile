@@ -1,6 +1,12 @@
 pipeline{
     agent any
 
+    def COLOR = [
+        'SUCCESS' : 'good',
+        'FAILURE' : 'danger',
+        'UNSTABLE' : 'warning',
+    ]
+
     parameters {
         string(name: 'TEST_NAME', defaultValue: "", description: 'Test to run')
     }
@@ -39,8 +45,10 @@ pipeline{
     }
     post
     {
-        success {
-            slackSend color: 'good' ,channel:'jenkins-private-test' , message: "Status of pipeline ${env.JOB_NAME} - ${env.BUILD_NUMBER} ${env.JOB_URL}"
+        always {
+            slackSend channel:'jenkins-private-test' ,
+                      message: "Status of pipeline ${env.JOB_NAME} - ${env.BUILD_NUMBER} ${env.JOB_URL}",
+                      color: COLOR[currentBuild.currentResult]
 
         }
     }  
