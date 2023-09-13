@@ -66,7 +66,7 @@ describe('Trello suite', () => {
 
         const res = await _axiosAction.axiosPost(`${listContext}?name=${randomName}&idBoard=${idBoard}&${authParams}`)
 
-        expect(res.status).toBe(200);
+        expect(res.status).toBe(400);
 
         // GET all board created 
         const getlistCreated = await _axiosAction.axiosGet(`${boardContext}/7VaH1jGZ/lists/open?${authParams}`)

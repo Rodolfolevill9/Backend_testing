@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --config=jest.config.json"
+    "test": "jest --reporters=default jest-html-reporters"
   },
   "keywords": [],
   "author": "",

@@ -1,9 +1,0 @@
-{
-    "jest": {
-        "reporters": [
-          "default",
-          "jest-html-reporters"
-        ]
-      }
-      
-}
