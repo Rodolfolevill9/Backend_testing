@@ -1,6 +1,3 @@
-/*import BasePage, { Contexts } from '../../common/basePage'
-import HttpRequest from '../../common/httpRequestPage';*/
-
 import BasePage, {Contexts} from 'backend-repo-core/src/basePage';
 import HttpRequestPage from 'backend-repo-core/src/httpRequestPage';
 import BoardPage from '../../common/boardPage';
@@ -35,6 +32,50 @@ describe('Trello suite', () => {
     });*/
 
     test('TC-001 [Post] Create a new List', async () => {
+        const listContext = _basePage.getUrlContext(Contexts.lists);
+        const boardContext = _basePage.getUrlContext(Contexts.boards);
+
+        // Id board 'My first Board'
+        const idBoard = await _boardPage.getBoardID('7VaH1jGZ');
+        console.log(idBoard)
+
+        // Get random name
+        const randomName = _basePage.getRandomName();
+
+        const res = await _axiosAction.axiosPost(`${listContext}?name=${randomName}&idBoard=${idBoard}&${authParams}`)
+
+        expect(res.status).toBe(200);
+
+        // GET all board created 
+        const getlistCreated = await _axiosAction.axiosGet(`${boardContext}/7VaH1jGZ/lists/open?${authParams}`)
+        const nameBoardCreated = getlistCreated.data[0].name;
+        console.log(getlistCreated.data[0].name)
+        expect(nameBoardCreated).toBe(randomName);
+    });
+
+    test('TC-002 [Post] Create a new List', async () => {
+        const listContext = _basePage.getUrlContext(Contexts.lists);
+        const boardContext = _basePage.getUrlContext(Contexts.boards);
+
+        // Id board 'My first Board'
+        const idBoard = await _boardPage.getBoardID('7VaH1jGZ');
+        console.log(idBoard)
+
+        // Get random name
+        const randomName = _basePage.getRandomName();
+
+        const res = await _axiosAction.axiosPost(`${listContext}?name=${randomName}&idBoard=${idBoard}&${authParams}`)
+
+        expect(res.status).toBe(200);
+
+        // GET all board created 
+        const getlistCreated = await _axiosAction.axiosGet(`${boardContext}/7VaH1jGZ/lists/open?${authParams}`)
+        const nameBoardCreated = getlistCreated.data[0].name;
+        console.log(getlistCreated.data[0].name)
+        expect(nameBoardCreated).toBe(randomName);
+    });
+
+    test('TC-003 [Post] Create a new List', async () => {
         const listContext = _basePage.getUrlContext(Contexts.lists);
         const boardContext = _basePage.getUrlContext(Contexts.boards);
 
