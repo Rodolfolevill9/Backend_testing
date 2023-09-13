@@ -58,8 +58,8 @@ ${env.JOB_URL}"""
             keepAll: true, 
             reportDir: '', 
             reportFiles: 'jest_html_reporters.html', 
-            reportName: 'HTML Report', 
-            reportTitles: ''])
+            reportName: 'HTML Report', reportTitles: '',
+            useWrapperFileDirectly: true])
     }  
 }
 }
