@@ -50,7 +50,7 @@ pipeline{
             color: COLOR[currentBuild.currentResult],
 message: """Status of pipeline - *${currentBuild.currentResult}*
 ${env.JOB_NAME} - ${env.BUILD_NUMBER}
-${env.JOB_URL}"""
+${env.JOB_URL}""",
 
         publishHTML([   
             allowMissing: false, 
