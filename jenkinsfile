@@ -52,6 +52,15 @@ message: """Status of pipeline - *${currentBuild.currentResult}*
 ${env.JOB_NAME} - ${env.BUILD_NUMBER}
 ${env.JOB_URL}"""
 
+        publishHTML([   
+            allowMissing: true, 
+            alwaysLinkToLastBuild: true, 
+            keepAll: true, reportDir: 'target/site', 
+            reportFiles: 'jest_html_reporters.html', 
+            reportName: 'HTML Report', 
+            reportTitles: 'Jest Report HTML', 
+            useWrapperFileDirectly: true])
+
         }
     }  
 }
