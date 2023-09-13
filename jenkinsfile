@@ -53,9 +53,10 @@ ${env.JOB_NAME} - ${env.BUILD_NUMBER}
 ${env.JOB_URL}"""
 
         publishHTML([   
-            allowMissing: true, 
+            allowMissing: false, 
             alwaysLinkToLastBuild: true, 
-            keepAll: true, reportDir: 'target/site', 
+            keepAll: true, 
+            reportDir: 'target/backend_testing', 
             reportFiles: 'jest_html_reporters.html', 
             reportName: 'HTML Report', 
             reportTitles: 'Jest Report HTML', 
